@@ -84,26 +84,26 @@ API expects, without needing network access.
 
 ```
 app/
-├── config.py         Settings (env-driven, no network at import time)
-├── db.py              SQLite schema + connection helper (relational metadata layer)
-├── pdf_utils.py         PDF text extraction + sentence-aware chunking
-├── embeddings.py         Embedder interface: local hashing (default) or Voyage AI
+├── config.py               Settings (env-driven, no network at import time)
+├── db.py                   SQLite schema + connection helper (relational metadata layer)
+├── pdf_utils.py            PDF text extraction + sentence-aware chunking
+├── embeddings.py           Embedder interface: local hashing (default) or Voyage AI
 ├── vectorstore.py          Local numpy-backed vector store (the "vector DB" layer)
-├── ingestion.py              Upload -> extract -> chunk -> embed -> index pipeline
-├── exporters.py                Markdown -> Markdown/DOCX/PDF report export
+├── ingestion.py            Upload -> extract -> chunk -> embed -> index pipeline
+├── exporters.py            Markdown -> Markdown/DOCX/PDF report export
 ├── llm/
-│   ├── base.py                   LLMClient interface (provider-agnostic)
+│   ├── base.py                     LLMClient interface (provider-agnostic)
 │   ├── anthropic_client.py         Real Claude API implementation
-│   └── mock_client.py               Deterministic offline mock (scripted + heuristic)
+│   └── mock_client.py              Deterministic offline mock (scripted + heuristic)
 ├── agent/
 │   ├── tool_schemas.py               Tool JSON schemas Claude sees
-│   ├── tools.py                       Tool implementations + TOOL_REGISTRY
-│   ├── prompts.py                      System prompt (grounding, citations, anti-injection)
-│   ├── orchestrator.py                  The agent loop itself
-│   └── search.py                         Standalone external paper search (FR-04)
+│   ├── tools.py                      Tool implementations + TOOL_REGISTRY
+│   ├── prompts.py                    System prompt (grounding, citations, anti-injection)
+│   ├── orchestrator.py               The agent loop itself
+│   └── search.py                     Standalone external paper search (FR-04)
 ├── routes/                                 Thin FastAPI routers (papers, chat, notes, reports)
-├── static/                                   Vanilla JS/CSS/HTML UI
-└── main.py                                     FastAPI app assembly
+├── static/                                 Vanilla JS/CSS/HTML UI
+└── main.py                                 FastAPI app assembly
 ```
 
 Every layer is swappable behind the interface the rest of the app depends
