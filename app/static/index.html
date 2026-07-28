@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PaperPilot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon"><span>&#9992;</span></div>
+      <div>
+        <h1>PaperPilot</h1>
+        <div class="sub" id="modeIndicator">connecting...</div>
+      </div>
+    </div>
+
+    <div class="section-label">Upload a Paper</div>
+    <div class="upload-box">
+      <input type="file" id="fileInput" accept="application/pdf" />
+      <label for="fileInput" id="uploadLabel">Click to upload a PDF (max 50MB)</label>
+    </div>
+    <div class="upload-status" id="uploadStatus"></div>
+
+    <div class="section-label">Your Papers</div>
+    <div class="paper-list" id="paperList">
+      <div class="empty-mini">No papers uploaded yet. Upload a PDF to begin, or use the Search tab to discover papers on the web.</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="chat">Chat</button>
+        <button class="tab-btn" data-tab="search">Search Papers</button>
+        <button class="tab-btn" data-tab="notes">Notes</button>
+        <button class="tab-btn" data-tab="reports">Reports</button>
+      </div>
+      <div class="status"><span id="statusDot" style="width:6px;height:6px;border-radius:50%;background:var(--teal);display:inline-block;"></span><span id="statusText">checking...</span></div>
+    </div>
+
+    <!-- CHAT VIEW -->
+    <section class="view" id="view-chat">
+      <div class="chat-scroll" id="chatScroll">
+        <div class="hint">
+          ASK PAPERPILOT ANYTHING<br/>
+          "What method does &lt;paper&gt; use?" &middot; "Compare paper A and paper B" &middot;<br/>
+          "Write a literature review on these papers" &middot; "Save a note: ..."
+        </div>
+      </div>
+    </section>
+    <div class="chat-input-bar" id="chatInputBar">
+      <input type="text" id="chatInput" placeholder="Ask a question about your papers..." />
+      <button id="chatSendBtn">Send</button>
+    </div>
+
+    <!-- SEARCH VIEW -->
+    <section class="view hidden" id="view-search">
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search the web for papers, e.g. sparse beamforming massive MIMO" />
+        <button id="searchBtn">Search</button>
+      </div>
+      <div id="searchResults"></div>
+    </section>
+
+    <!-- NOTES VIEW -->
+    <section class="view hidden" id="view-notes">
+      <div id="notesList"></div>
+    </section>
+
+    <!-- REPORTS VIEW -->
+    <section class="view hidden" id="view-reports">
+      <div id="reportsList"></div>
+    </section>
+  </main>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

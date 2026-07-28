@@ -1,0 +1,24 @@
+# --- Web framework ---
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9   # required by FastAPI for file uploads
+pydantic>=2.6
+
+# --- LLM ---
+anthropic>=0.34
+
+# --- PDF ingestion ---
+pypdf>=5.0
+pdfplumber>=0.11
+
+# --- Embeddings / vector math (LocalHashingEmbedder + vector store) ---
+numpy>=1.26
+
+# --- Report export ---
+python-docx>=1.1
+reportlab>=4.2
+
+# --- Optional: production-quality semantic embeddings ---
+# Uncomment and set PAPERPILOT_EMBEDDING_BACKEND=voyage and VOYAGE_API_KEY
+# to use these instead of the built-in zero-dependency local embedder.
+# voyageai>=0.2
